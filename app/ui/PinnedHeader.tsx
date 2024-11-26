@@ -19,10 +19,10 @@ export default function PinnedHeader() {
 
     return (
         <header
-            className={`flex flex-wrap md:justify-start backdrop-blur-md dark:bg-[#071321]/80 bg-white/80 md:flex-nowrap w-full text-sm py-3 z-50 fixed top-0 left-0 transform transition-transform duration-300 ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
+            className={`flex flex-wrap lg:justify-start backdrop-blur-md dark:bg-[#071321]/80 bg-white/80 lg:flex-nowrap w-full text-sm py-3 z-50 fixed top-0 left-0 transform transition-transform duration-300 ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
             <nav className='max-w-6xl w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between'>
                 <Link
-                    className="md:order-1 flex-none text-xl font-semibold dark:text-white focus:outline-none focus:opacity-80"
+                    className="lg:order-1 flex-none text-xl font-semibold dark:text-white focus:outline-none focus:opacity-80"
                     href="/"
                 >
                     <img
@@ -36,8 +36,8 @@ export default function PinnedHeader() {
                         alt="Dark Logo"
                     />
                 </Link>
-                <div className='hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:grow-0 md:basis-auto md:block md:order-2'>
-                    <div className='flex flex-col gap-5 mt-5 md:flex-row md:items-center md:mt-0 md:ps-5'>
+                <div className='hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow lg:grow-0 lg:basis-auto lg:block lg:order-2'>
+                    <div className='flex flex-col gap-5 mt-5 lg:flex-row lg:items-center lg:mt-0 lg:ps-5'>
                         <Link href="/terms" className='text-black dark:text-white focus:text-[#43A2FE] hover:text-[#43A2FE] cursor-pointer'>
                             <h3>{t("terms")}</h3>
                         </Link>
@@ -52,7 +52,7 @@ export default function PinnedHeader() {
                         </button>
                     </div>
                 </div>
-                <div className="md:order-3 flex items-center gap-x-2">
+                <div className="lg:order-3 flex items-center gap-x-2">
                     <button
                         type="button"
                         onClick={toggleTheme}
@@ -69,7 +69,7 @@ export default function PinnedHeader() {
                     <button
                         type="button"
                         onClick={toggleLanguage}
-                        className="md:flex hidden hs-collapse-toggle relative size-11 justify-center items-center gap-x-2 rounded-lg border dark:border-[#364861] border-gray-300 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#2b3c53] dark:hover:bg-[#3a506e] dark:focus:bg-[#364861]"
+                        className="lg:flex hidden hs-collapse-toggle relative size-11 justify-center items-center gap-x-2 rounded-lg border dark:border-[#364861] border-gray-300 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#2b3c53] dark:hover:bg-[#3a506e] dark:focus:bg-[#364861]"
                         id="hs-navbar-alignment-collapse"
                         aria-expanded="false"
                         aria-controls="hs-navbar-alignment"
@@ -82,7 +82,7 @@ export default function PinnedHeader() {
                     <button
                         type="button"
                         onClick={toggleSidebar}
-                        className="md:hidden hs-collapse-toggle relative size-11 flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-white dark:hover:bg-white/90 dark:focus:bg-white/90"
+                        className="lg:hidden hs-collapse-toggle relative size-11 flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-white dark:hover:bg-white/90 dark:focus:bg-white/90"
                         id="hs-navbar-alignment-collapse"
                         aria-expanded="false"
                         aria-controls="hs-navbar-alignment"
@@ -91,7 +91,7 @@ export default function PinnedHeader() {
                     >
                         <i className='ri-menu-line text-black text-lg' />
                     </button>
-                    <a href='https://app.awraq.tech' className="py-3 px-4 md:inline-flex hidden items-center gap-x-2 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm focus:outline-none focus:border-[#3784d1] disabled:opacity-50 disabled:pointer-events-none border-none bg-[#43A2FE] text-white hover:bg-[#3784d1] focus:bg-[#3784d1]">
+                    <a href='https://app.awraq.tech' className="py-3 px-4 lg:inline-flex hidden items-center gap-x-2 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm focus:outline-none focus:border-[#3784d1] disabled:opacity-50 disabled:pointer-events-none border-none bg-[#43A2FE] text-white hover:bg-[#3784d1] focus:bg-[#3784d1]">
                         <h3>{t("go-header")}</h3>
                     </a>
                 </div>

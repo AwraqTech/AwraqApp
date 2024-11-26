@@ -24,7 +24,7 @@ export default function SideBarMobileMenu() {
             {/* Backdrop */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black opacity-50 z-[100] transition-opacity duration-300 md:hidden"
+                    className="fixed inset-0 bg-black opacity-50 z-[100] transition-opacity duration-300 lg:hidden"
                     onClick={closeSidebar}
                     id="backdrop"
                 />
@@ -33,12 +33,12 @@ export default function SideBarMobileMenu() {
             {/* Sidebar */}
             <div
                 className={`fixed top-0 left-0 bottom-0 z-[999] w-64 dark:bg-[#111c2a] bg-[#f1f1f1] border-e border-white dark:border-[#071321] pt-7 pb-10 overflow-y-auto 
-        transition-transform duration-300 transform ${isOpen ? "translate-x-0" : "-translate-x-full"} md:hidden`}
+        transition-transform duration-300 transform ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:hidden`}
                 aria-label="Sidebar"
             >
                 <div className="px-6">
                     <Link
-                        className="md:order-1 flex-none text-xl font-semibold dark:text-white focus:outline-none focus:opacity-80"
+                        className="lg:order-1 flex-none text-xl font-semibold dark:text-white focus:outline-none focus:opacity-80"
                         href="#"
                     >
                         <Image

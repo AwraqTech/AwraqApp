@@ -49,11 +49,7 @@ export default async function RootLayout({
       <html lang={locale} dir={isArabic ? "rtl" : "ltr"}>
         <body className={ibmPlexSansArabic.className}>
           <ClientWrapper locale={locale}>
-            <PinnedHeader />
-            <Header />
-            <SideBarMobileMenu />
             {children}
-            <Footer />
           </ClientWrapper>
         </body>
       </html>
