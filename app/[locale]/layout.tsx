@@ -10,6 +10,8 @@ import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import ClientWrapper from "./layouts/ClientLayout";
 import "./globals.css";
 import { headers } from "next/headers";
+import { ErrorProvider } from "../context/ErrorContext";
+import { RegisterProvider } from "../context/RegisterContext";
 
 // Load font
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
@@ -49,7 +51,11 @@ export default async function RootLayout({
       <html lang={locale} dir={isArabic ? "rtl" : "ltr"}>
         <body className={ibmPlexSansArabic.className}>
           <ClientWrapper locale={locale}>
-            {children}
+            <ErrorProvider>
+              <RegisterProvider>
+                {children}
+              </RegisterProvider>
+            </ErrorProvider>
           </ClientWrapper>
         </body>
       </html>

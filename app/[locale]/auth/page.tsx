@@ -7,7 +7,7 @@ import React from 'react'
 export default function Auth() {
     return (
         <div className='flex flex-col w-full h-screen'>
-            <Header />
+            <Header headerTitle=''/>
             <SideBarMobileMenu />
             <AuthenticationForm />
             <Footer />

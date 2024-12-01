@@ -9,7 +9,11 @@ import { Link } from '@/navigation';
 import { useToggleLanguage } from '../hooks/useToggleLanguage';
 import { usePathname } from '@/navigation';
 
-export default function Header() {
+interface Props {
+  headerTitle: string;
+}
+
+export default function Header({headerTitle}: Props) {
   const { toggleTheme } = useTheme();
   const handleScroll = useScrollTo();
   const { toggleSidebar } = useSidebar();
@@ -17,13 +21,15 @@ export default function Header() {
   const { toggleLanguage } = useToggleLanguage();
   const pathname = usePathname();
 
-  const hideSideBarOnAuth = pathname.includes('/auth');
+  const auth = pathname.includes('/auth');
+  const dashboard = pathname.includes('/dashboard');
 
   return (
-    <header className='flex flex-wrap lg:justify-start lg:flex-nowrap w-full bg-transparent text-sm lg:py-8 py-4'>
+    <header className={`flex flex-wrap lg:justify-start lg:flex-nowrap w-full bg-transparent text-sm ${dashboard ? "lg:py-2 py-4" : "lg:py-8 py-4"} `}>
       <nav className='w-full mx-auto sm:px-8 px-4 flex flex-wrap basis-full items-center justify-between'>
-        <Link
-          className="lg:order-1 flex-none text-xl font-semibold dark:text-white focus:outline-none focus:opacity-80"
+        {auth ? (
+          <Link
+          className={`lg:order-1 flex-none text-xl font-semibold dark:text-white focus:outline-none focus:opacity-80`}
           href="/"
         >
           <img
@@ -37,6 +43,9 @@ export default function Header() {
             alt="Dark Logo"
           />
         </Link>
+        ) : (
+          <h1 className='text-3xl font-bold'>{headerTitle}</h1>
+        )}
         <div className="lg:order-3 flex items-center gap-x-2">
           <button
             type="button"
@@ -54,7 +63,7 @@ export default function Header() {
           <button
             type="button"
             onClick={toggleLanguage}
-            className="hs-collapse-toggle relative size-11 justify-center items-center gap-x-2 rounded-lg border dark:border-[#364861] border-gray-300 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#2b3c53] dark:hover:bg-[#3a506e] dark:focus:bg-[#364861]"
+            className="hs-collapse-toggle lg:flex hidden relative size-11 justify-center items-center gap-x-2 rounded-lg border dark:border-[#364861] border-gray-300 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#2b3c53] dark:hover:bg-[#3a506e] dark:focus:bg-[#364861]"
             id="hs-navbar-alignment-collapse"
             aria-expanded="false"
             aria-controls="hs-navbar-alignment"
@@ -64,7 +73,7 @@ export default function Header() {
             <i className='ri-global-fill text-lg text-black dark:text-white' />
           </button>
           {/* Mobile Menu Button */}
-          {hideSideBarOnAuth ? null : (
+          {auth ? null : (
             <button
               type="button"
               onClick={toggleSidebar}
