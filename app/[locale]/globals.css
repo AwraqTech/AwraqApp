@@ -28,3 +28,17 @@ h1, h2, h3, h4, h5, h6, p, span, li, a {
 .dynamic-margin {
   margin-inline-start: 16rem;
 }
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Edge */
+}
+
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* Ensure scrolling is still functional */
+body {
+  overflow-y: scroll;
+}

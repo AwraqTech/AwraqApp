@@ -2,7 +2,8 @@
 
 import React from "react";
 import { Link } from "@/navigation";
-import { mainNavLinks } from "../hooks/SidebarNavList";
+import { useSidebarNavLinks } from "../hooks/SidebarNavList";
+import { useTranslations } from "next-intl";
 
 interface Props {
     isArabic: boolean;
@@ -17,9 +18,11 @@ export default function MainNavSection({
     handleToggle,
     isActive,
 }: Props) {
+    const { mainNavLinks } = useSidebarNavLinks();
+    const t = useTranslations("SideBarNav");
     return (
         <div className="flex flex-col gap-2 w-full">
-            <h1 className="font-bold text-md">الإعدادات الرئيسية</h1>
+            <h1 className="font-bold text-md">{t("mainSettingsTitle")}</h1>
             <div className="flex flex-col justify-start items-center gap-2 w-full">
                 {mainNavLinks.map((nav, index) => (
                     <div key={index} className="w-full">
