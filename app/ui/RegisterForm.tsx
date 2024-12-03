@@ -4,6 +4,7 @@ import useRegister from '../hooks/useRegister'
 import FailureToast from '../components/FailureToast';
 import { useHandleErrors } from '../context/ErrorContext';
 import { useTranslations } from 'next-intl';
+import useTogglePasswordVisibility from '../hooks/useTogglePasswordVisibility';
 
 export default function RegisterForm() {
   const {
@@ -19,6 +20,7 @@ export default function RegisterForm() {
     handleRegisterNewUser
   } = useRegister();
 
+  const { isPasswordVisible, togglePasswordVisibility } = useTogglePasswordVisibility();
   const { isError, errorMessage } = useHandleErrors();
   const t = useTranslations("Auth");
 
@@ -26,7 +28,7 @@ export default function RegisterForm() {
     <form onSubmit={handleRegisterNewUser} className='flex flex-col gap-4 dark:bg-[#111c2a] bg-[#f1f1f1] p-8 w-full max-w-xl rounded-xl'>
       <div>
         <label htmlFor="hs-leading-icon" className="block text-sm font-medium mb-2 dark:text-white">
-        {t("name_label")}
+          {t("name_label")}
         </label>
         <div className="relative" dir='ltr'>
           <input
@@ -45,7 +47,7 @@ export default function RegisterForm() {
       </div>
       <div>
         <label htmlFor="hs-leading-icon" className="block text-sm font-medium mb-2 dark:text-white">
-        {t("email_label")}
+          {t("email_label")}
         </label>
         <div className="relative" dir='ltr'>
           <input
@@ -64,7 +66,7 @@ export default function RegisterForm() {
       </div>
       <div>
         <label htmlFor="hs-leading-icon" className="block text-sm font-medium mb-2 dark:text-white">
-        {t("phone_label")}
+          {t("phone_label")}
         </label>
         <div className="relative" dir='ltr'>
           <input
@@ -85,9 +87,9 @@ export default function RegisterForm() {
         <label htmlFor="hs-leading-icon" className="block text-sm font-medium mb-2 dark:text-white">
           {t("password_label")}
         </label>
-        <div className="relative" dir='ltr'>
+        <div className="relative" dir="ltr">
           <input
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             value={password}
             onChange={(e) => handlePasswordChange(e.target.value)}
             id="hs-leading-icon"
@@ -96,13 +98,24 @@ export default function RegisterForm() {
             placeholder={t("password_placeholder")}
           />
           <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
-            <i className='ri-lock-password-line text-lg text-neutral-400 dark:text-neutral-500' />
+            <i className="ri-lock-password-line text-lg text-neutral-400 dark:text-neutral-400" />
           </div>
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-neutral-400 rounded-e-md focus:outline-none focus:text-blue-600 dark:text-neutral-400 dark:focus:text-blue-500"
+          >
+            {isPasswordVisible ? (
+              <i className="ri-eye-line text-neutral-400 dark:text-neutral-400"></i>
+            ) : (
+              <i className="ri-eye-off-line text-neutral-400 dark:text-neutral-400"></i>
+            )}
+          </button>
         </div>
       </div>
-      <SubmittingButton isSubmitting={isSubmitting} title={t("register_submit")}/>
+      <SubmittingButton isSubmitting={isSubmitting} title={t("register_submit")} />
       <p className='text-gray-500 dark:text-gray-400'>
-      {t("by_creating_account")} <a href='https://awraq.tech/ar/privacy' className='hover:underline'>{t("privacy_policy")}</a>
+        {t("by_creating_account")} <a href='https://awraq.tech/ar/privacy' className='hover:underline'>{t("privacy_policy")}</a>
       </p>
       {isError && (
         <FailureToast title={t("error_heading")} message={errorMessage} />

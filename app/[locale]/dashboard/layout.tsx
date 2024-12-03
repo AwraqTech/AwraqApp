@@ -1,6 +1,7 @@
 "use client"
 
 import useDynamicPathState from "@/app/hooks/useDynamicPathState";
+import { useTooltip } from "@/app/hooks/useTooltip";
 import DashboardSideBarNavLg from "@/app/ui/DashboardSideBarNavLg";
 import Footer from "@/app/ui/Footer";
 import Header from "@/app/ui/Header";
@@ -16,6 +17,7 @@ export default function DashboardLayout({
 }) {
     const pageTitle = useDynamicPathState();
     const t = useTranslations("SideBarNav");
+    const { tooltipVisible, onMouseEnter, onMouseLeave } = useTooltip();
 
     return (
         <main className="flex h-screen">
@@ -35,7 +37,26 @@ export default function DashboardLayout({
                         className="h-12 object-contain hidden dark:block"
                         alt="Dark Logo"
                     />
-                    <p className="text-gray-500 dark:text-gray-400">{t("betaVersion")}</p>
+                    <span className="flex flex-row justify-center items-center gap-2 w-full">
+                        <p className="text-gray-500 dark:text-gray-400">{t("betaVersion")}</p>
+                        <div className="hs-tooltip inline-block">
+                            <button
+                                type="button"
+                                className="hs-tooltip-toggle inline-flex justify-center items-center gap-2"
+                                onMouseEnter={onMouseEnter}
+                                onMouseLeave={onMouseLeave}
+                            >
+                                <i className="ri-information-2-line text-lg text-neutral-400 dark:text-neutral-400" />
+                                <span
+                                    className={`hs-tooltip-content absolute z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm dark:bg-[#2b3c53] ${tooltipVisible ? "opacity-100 visible" : "opacity-0 invisible"
+                                        } transition-opacity`}
+                                    role="tooltip"
+                                >
+                                    {t("tooltipBetaVersion")}
+                                </span>
+                            </button>
+                        </div>
+                    </span>
                 </Link>
                 <DashboardSideBarNavLg />
                 <div className="flex flex-col w-full gap-4">

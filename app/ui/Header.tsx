@@ -63,7 +63,7 @@ export default function Header({headerTitle}: Props) {
           <button
             type="button"
             onClick={toggleLanguage}
-            className="hs-collapse-toggle lg:flex hidden relative size-11 justify-center items-center gap-x-2 rounded-lg border dark:border-[#364861] border-gray-300 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#2b3c53] dark:hover:bg-[#3a506e] dark:focus:bg-[#364861]"
+            className={`hs-collapse-toggle lg:flex ${auth ? 'flex' : 'hidden'} relative size-11 justify-center items-center gap-x-2 rounded-lg border dark:border-[#364861] border-gray-300 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#2b3c53] dark:hover:bg-[#3a506e] dark:focus:bg-[#364861]`}
             id="hs-navbar-alignment-collapse"
             aria-expanded="false"
             aria-controls="hs-navbar-alignment"

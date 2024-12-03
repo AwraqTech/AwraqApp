@@ -80,6 +80,7 @@
         "accountEmployee": "Employee Account",
         "signOut": "Sign Out",
         "unknown": "Unknown",
-        "betaVersion": "Beta Version"
+        "betaVersion": "Beta Version",
+        "tooltipBetaVersion": "This enhanced version emphasizes ongoing improvements and the intention for a better experience in the future."
     }
 }

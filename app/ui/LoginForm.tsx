@@ -5,6 +5,7 @@ import FailureToast from '../components/FailureToast';
 import { useHandleErrors } from '../context/ErrorContext';
 import { useRegisterContext } from '../context/RegisterContext';
 import { useTranslations } from 'next-intl';
+import useTogglePasswordVisibility from '../hooks/useTogglePasswordVisibility';
 
 export default function LoginForm() {
   const {
@@ -16,6 +17,7 @@ export default function LoginForm() {
     handleLoginUser,
   } = useLogin();
 
+  const { isPasswordVisible, togglePasswordVisibility } = useTogglePasswordVisibility();
   const { isError, errorMessage } = useHandleErrors();
   const { setIsForgetPassword } = useRegisterContext();
   const t = useTranslations("Auth");
@@ -45,9 +47,9 @@ export default function LoginForm() {
         <label htmlFor="hs-leading-icon" className="block text-sm font-medium mb-2 dark:text-white">
           {t("password_label")}
         </label>
-        <div className="relative" dir='ltr'>
+        <div className="relative" dir="ltr">
           <input
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             value={password}
             onChange={(e) => handlePasswordChange(e.target.value)}
             id="hs-leading-icon"
@@ -56,14 +58,25 @@ export default function LoginForm() {
             placeholder={t("password_placeholder")}
           />
           <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
-            <i className='ri-lock-password-line text-lg text-neutral-400 dark:text-neutral-500' />
+            <i className="ri-lock-password-line text-lg text-neutral-400 dark:text-neutral-400" />
           </div>
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-neutral-400 rounded-e-md focus:outline-none focus:text-blue-600 dark:text-neutral-400 dark:focus:text-blue-500"
+          >
+            {isPasswordVisible ? (
+              <i className="ri-eye-line text-neutral-400 dark:text-neutral-400"></i>
+            ) : (
+              <i className="ri-eye-off-line text-neutral-400 dark:text-neutral-400"></i>
+            )}
+          </button>
         </div>
       </div>
       <SubmittingButton isSubmitting={isSubmitting} title={t("login_submit")} />
       <div className="py-3 flex items-center text-xs text-gray-500 uppercase before:flex-1 before:border-t before:border-gray-300 before:me-6 after:flex-1 after:border-t after:border-gray-300 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">{t("forgot_password")}</div>
       <p className='text-gray-500 dark:text-gray-400 text-center'>
-      {t("forgot_password")} {' '} <button onClick={() => setIsForgetPassword(true)} className='hover:underline text-black dark:text-white'>{t("recover_password")}</button>
+        {t("forgot_password")} {' '} <button onClick={() => setIsForgetPassword(true)} className='hover:underline text-black dark:text-white'>{t("recover_password")}</button>
       </p>
       {isError && (
         <FailureToast title={t("error_heading")} message={errorMessage} />

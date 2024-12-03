@@ -42,3 +42,30 @@ html {
 body {
   overflow-y: scroll;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="text"] {
+  appearance: none; /* Remove default styles */
+}
+
+.chart-container {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.chart-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
