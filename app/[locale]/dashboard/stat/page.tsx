@@ -12,13 +12,15 @@ export default function DashboardMain() {
 
   return (
     <div className='flex lg:flex-row justify-between gap-8 items-center flex-col w-full max-w-[1490px] mx-auto lg:px-0 px-4'>
-      <div className='flex flex-col lg:w-2/3 w-full gap-4'>
+      <div className='flex flex-col lg:w-2/3 w-full gap-16'>
         <div className='flex lg:flex-row flex-col lg:justify-between lg:items-center w-full lg:gap-4 gap-8'>
           <IncomeSummary />
           <ExpensesSummary />
         </div>
-        <AnalyticsHeading onTimePeriodChange={handleTimePeriodChange} />
-        <AnalyticsDiagram selectedTimePeriod={selectedTimePeriod} />
+        <div className='flex flex-col w-full gap-4'>
+          <AnalyticsHeading onTimePeriodChange={handleTimePeriodChange} />
+          <AnalyticsDiagram selectedTimePeriod={selectedTimePeriod} />
+        </div>
       </div>
       <div className='flex flex-col lg:w-1/3 w-full'>
         {/* Other Content */}

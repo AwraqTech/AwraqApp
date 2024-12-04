@@ -1,5 +1,6 @@
 import React from 'react'
 import DropdownIconButton from '../DropdownIconButton'
+import DatePickerButton from '../DatePickerButton';
 
 interface Props {
     onTimePeriodChange: (timePeriod: string) => void;
@@ -14,15 +15,18 @@ export default function AnalyticsHeading({ onTimePeriodChange }: Props) {
 
     return (
         <div className='flex flex-row justify-between items-center w-full'>
-            <DropdownIconButton
-                icon='sound-module-line'
-                isToggleButton={true}
-                list={list}
-                onSelect={(timePeriod: string) => {
-                    onTimePeriodChange(timePeriod);
-                }}
-            />
-            <h1 className='text-2xl font-bold'>إحصائيات المنشأة</h1>
+            <div className='flex flex-row justify-center items-start gap-2'>
+                <DropdownIconButton
+                    icon='sound-module-line'
+                    isToggleButton={true}
+                    list={list}
+                    onSelect={(timePeriod: string) => {
+                        onTimePeriodChange(timePeriod);
+                    }}
+                />
+                <DatePickerButton />
+            </div>
+            <h1 className='text-2xl font-bold lg:flex hidden'>إحصائيات المنشأة</h1>
         </div>
     );
 }

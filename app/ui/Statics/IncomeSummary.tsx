@@ -20,10 +20,10 @@ export default function IncomeSummary() {
             />
             <div className='flex flex-col gap-2 w-full mt-3 items-end justify-between'>
                 <span className='flex flex-row justify-end items-center w-full gap-2'>
+                    <h1 className="font-bold text-md">الإيرادات</h1>
                     <div className='rounded-lg py-0.5 px-1.5 border dark:border-[#364861] border-gray-300 bg-white dark:bg-[#2b3c53] items-center justify-center'>
                         <i className='ri-copper-coin-line text-lg text-black dark:text-white' />
                     </div>
-                    <h1 className="font-bold text-md">الإيرادات</h1>
                 </span>
                 <span className='flex flex-col justify-start items-end gap-1'>
                     <h1 className='text-2xl font-bold'>5406</h1>
