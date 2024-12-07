@@ -54,6 +54,9 @@
     "SideBarNav": {
         "mainSettingsTitle": "Main Settings",
         "stat": "Statistics",
+        "inventory": "Inventory Management",
+        "generalManagement": "General Management",
+        "inventoryMovement": "Moving Inventory",
         "products": "Products",
         "categories": "Categories",
         "customers": "Customers",
@@ -68,6 +71,7 @@
         "receiptsPayed": "Paid Receipts",
         "receiptsNotPayed": "Unpaid Receipts",
         "receiptsCanceled": "Canceled Receipts",
+        "assetsManagements": "Assets Management",
         "purchaseOrders": "Expenses",
         "poPayed": "Paid Expenses",
         "poNotPayed": "Unpaid Expenses",
@@ -82,5 +86,9 @@
         "unknown": "Unknown",
         "betaVersion": "Beta Version",
         "tooltipBetaVersion": "This enhanced version emphasizes ongoing improvements and the intention for a better experience in the future."
+    },
+    "Chart": {
+        "am": "AM",
+        "pm": "PM"
     }
 }

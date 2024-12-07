@@ -1,6 +1,7 @@
 import React from 'react'
 import DropdownIconButton from '../DropdownIconButton'
 import DatePickerButton from '../DatePickerButton';
+import ExportButton from '../ExportButton';
 
 interface Props {
     onTimePeriodChange: (timePeriod: string) => void;
@@ -25,6 +26,7 @@ export default function AnalyticsHeading({ onTimePeriodChange }: Props) {
                     }}
                 />
                 <DatePickerButton />
+                <ExportButton />
             </div>
             <h1 className='text-2xl font-bold lg:flex hidden'>إحصائيات المنشأة</h1>
         </div>

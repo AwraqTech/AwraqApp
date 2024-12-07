@@ -2,7 +2,7 @@ import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { useTheme } from "@/app/context/ThemeContext";
-import useFormatChartLabels from '../hooks/useFormatChartLabels';
+import useFormateChartDesktop from '../hooks/useFormateChartDesktop';
 
 type Dataset = {
     label: string;
@@ -23,7 +23,7 @@ export default function BarChartDesktop({ labels, datasets, selectedTimePeriod }
 
     const { theme } = useTheme();
 
-    const adjustedLabels = useFormatChartLabels(labels, selectedTimePeriod);
+    const adjustedLabels = useFormateChartDesktop(labels, selectedTimePeriod);
 
     const data = {
         labels: adjustedLabels,

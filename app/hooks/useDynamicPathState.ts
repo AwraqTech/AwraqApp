@@ -14,10 +14,10 @@ const useDynamicPathState = () => {
             case pathname.includes("/dashboard/stat"):
                 setPageTitle(t("stat"));
                 break;
-            case pathname.includes("/dashboard/products"):
+            case pathname.includes("/dashboard/inventory/products"):
                 setPageTitle(t("products"));
                 break;
-            case pathname.includes("/dashboard/categories"):
+            case pathname.includes("/dashboard/inventory/categories"):
                 setPageTitle(t("categories"));
                 break;
             case pathname.includes("/dashboard/customers"):
@@ -64,6 +64,15 @@ const useDynamicPathState = () => {
                 break;
             case pathname.includes("/dashboard/general"):
                 setPageTitle(t("generalSettings"));
+                break;
+            case pathname.includes("/dashboard/inventory/general"):
+                setPageTitle(t("generalManagement"));
+                break;
+            case pathname.includes("/dashboard/inventory/movements"):
+                setPageTitle(t("inventoryMovement"));
+                break;
+            case pathname.includes("/dashboard/assets"):
+                setPageTitle(t("assetsManagements"));
                 break;
             default:
                 setPageTitle(t("unknown"));

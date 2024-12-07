@@ -54,6 +54,9 @@
     "SideBarNav": {
         "mainSettingsTitle": "الإعدادات الرئيسية",
         "stat": "الإحصائيات",
+        "inventory": "إدارة المخزون",
+        "generalManagement": "إدارة عامة",
+        "inventoryMovement": "نقل المخزون",
         "products": "المنتجات",
         "categories": "التصنيفات",
         "customers": "العملاء",
@@ -66,6 +69,7 @@
         "financeSectionTitle": "قسم المالية",
         "receipts": "الفواتير",
         "receiptsPayed": "الفواتير المدفوعة",
+        "assetsManagements": "إدارة الأصول",
         "receiptsNotPayed": "الفواتير الغير مدفوعة",
         "receiptsCanceled": "الفواتير الملغية",
         "purchaseOrders": "المصروفات",
@@ -82,5 +86,9 @@
         "unknown": "غير معروف",
         "betaVersion": "الإصدار التجريبي",
         "tooltipBetaVersion": "هذا الإصدار هو إصدار تجريبي، وقد تلاحظ بعض الأخطاء أو القصور فيه. نعمل على تحسينه باستمرار لضمان تجربة أفضل في المستقبل."
+    },
+    "Chart": {
+        "am": "ص",
+        "pm": "م"
     }
 }

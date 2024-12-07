@@ -9,6 +9,8 @@ import SideBarMobileMenu from "@/app/ui/SideBarMobileMenu";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
+import Intercom from '@intercom/messenger-js-sdk';
+import { usePathname } from "next/navigation";
 
 export default function DashboardLayout({
     children,
@@ -18,6 +20,26 @@ export default function DashboardLayout({
     const pageTitle = useDynamicPathState();
     const t = useTranslations("SideBarNav");
     const { tooltipVisible, onMouseEnter, onMouseLeave } = useTooltip();
+    const pathname = usePathname();
+    const isArabic = pathname.includes('/ar') ? 'left' : 'right';
+    const language = pathname.includes('/ar') ? 'ar' : 'en';
+
+    // for proposal purpose
+    const user = {
+        id: '1',
+        name: 'Nawaf',
+        email: 'nawaf.alhasosah@gmail.com',
+        createdAt: 10
+    }
+    
+    Intercom({
+        app_id: 'x1ifg06k',
+        //Later i will replace with the real user informations
+        user_id: user.id,
+        name: user.name,
+        email: user.email,
+        created_at: user.createdAt,
+    });
 
     return (
         <main className="flex h-screen">

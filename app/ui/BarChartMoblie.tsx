@@ -3,6 +3,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import { Bar } from 'react-chartjs-2';
 import { useTheme } from "@/app/context/ThemeContext";
 import useFormatChartLabels from '../hooks/useFormatChartLabels';
+import { useTranslations } from 'next-intl';
 
 type Dataset = {
     label: string;
@@ -22,8 +23,9 @@ export default function BarChartMobile({ labels, datasets, selectedTimePeriod }:
     ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, Filler);
 
     const { theme } = useTheme();
+    const t = useTranslations('Chart');
 
-    const adjustedLabels = useFormatChartLabels(labels, selectedTimePeriod);
+    const adjustedLabels = useFormatChartLabels(labels, selectedTimePeriod, t);
 
     const data = {
         labels: adjustedLabels,

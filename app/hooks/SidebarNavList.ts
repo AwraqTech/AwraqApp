@@ -13,16 +13,28 @@ export const useSidebarNavLinks = () => {
             isCollapsable: false,
         },
         {
-            title: t("products"),
-            link: '/dashboard/products',
-            icon: 'archive-2-line',
-            isCollapsable: false,
-        },
-        {
-            title: t("categories"),
-            link: '/dashboard/categories',
-            icon: 'stack-line',
-            isCollapsable: false,
+            title: t("inventory"),
+            link: '/dashboard/inventory',
+            icon: 'archive-stack-line',
+            isCollapsable: true,
+            subNav: [
+                {
+                    title: t("generalManagement"),
+                    link: '/dashboard/inventory/general',
+                },
+                {
+                    title: t("products"),
+                    link: '/dashboard/inventory/products',
+                },
+                {
+                    title: t("categories"),
+                    link: '/dashboard/inventory/categories',
+                },
+                {
+                    title: t("inventoryMovement"),
+                    link: '/dashboard/inventory/movements',
+                },
+            ],
         },
         {
             title: t("customers"),
@@ -107,6 +119,12 @@ export const useSidebarNavLinks = () => {
                 },
             ],
         },
+        {
+            title: t("assetsManagements"),
+            link: '/dashboard/assets',
+            icon: 'hand-coin-line',
+            isCollapsable: false,
+        }
     ];
 
     const settingLinks = [
