@@ -31,7 +31,7 @@ export default function AuthenticationForm() {
                             <div className="flex justify-end mb-3 w-full max-w-xl">
                                 <div
                                     id="toggle-count"
-                                    className="p-1 rounded-xl dark:bg-[#111c2a] bg-[#f1f1f1] w-full flex"
+                                    className="p-1 rounded-xl dark:bg-[#111c2a] bg-[#f1f1f1] border dark:border-[#2b3c53] dark:shadow-neutral-700/70 w-full flex"
                                 >
                                     <label
                                         onClick={toggleLogin}

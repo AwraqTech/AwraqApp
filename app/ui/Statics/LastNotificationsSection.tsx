@@ -7,7 +7,7 @@ export default function LastNotificationsSection() {
     const groupedEvents = groupEventsByDate(fakeLastNotifications);
 
     return (
-        <div className='flex flex-col w-full h-80 overflow-y-scroll'>
+        <div className='grid grid-rows-[auto,1fr] w-full max-h-[300px] overflow-y-auto'>
             {Object.keys(groupedEvents).map((date) => (
                 <div key={date}>
                     <div className="ps-2 my-2 first:mt-0">

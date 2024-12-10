@@ -10,6 +10,7 @@ import IncomeSummary from '@/app/ui/Statics/IncomeSummary';
 import LastNotifications from '@/app/ui/Statics/LastNotifications';
 import OrdersSummary from '@/app/ui/Statics/OrdersSummary';
 import ReturnsSummary from '@/app/ui/Statics/ReturnsSummary';
+import UsersList from '@/app/ui/Statics/UsersList';
 import React from 'react'
 
 export default function DashboardMain() {
@@ -17,28 +18,33 @@ export default function DashboardMain() {
 
   return (
     <>
-      {/* <FirstLaunchPageGuid /> */}
-      <div className='flex lg:flex-row justify-between gap-8 mt-4 items-start flex-col w-full max-w-[1490px] mx-auto lg:px-0 px-4'>
-        <div className='flex flex-col lg:w-2/3 w-full gap-8'>
-          <div className='flex flex-col w-full gap-4'>
-            <AnalyticsHeading onTimePeriodChange={handleTimePeriodChange} />
+      <FirstLaunchPageGuid />
+      <div className="flex w-full max-w-[1490px] mx-auto mt-8 sm:px-0 px-4">
+        <AnalyticsHeading onTimePeriodChange={handleTimePeriodChange} />
+      </div>
+      <div className="flex lg:flex-row justify-between gap-8 mt-4 items-start flex-col w-full max-w-[1490px] mx-auto lg:px-0 px-4">
+        <div className="flex flex-col lg:w-2/3 w-full gap-8">
+          <div className="flex flex-col w-full gap-4">
             <AnalyticsDiagram selectedTimePeriod={selectedTimePeriod} />
           </div>
-          <div className='flex flex-col w-full gap-4'>
-            <div className='flex lg:flex-row flex-col lg:justify-between lg:items-center w-full gap-4'>
+          <div className="flex flex-col w-full gap-4">
+            <div className="flex lg:flex-row flex-col lg:justify-between lg:items-center w-full gap-4">
               <IncomeSummary />
               <ExpensesSummary />
             </div>
-            <div className='flex lg:flex-row flex-col lg:justify-between lg:items-center w-full gap-4'>
+            <div className="flex lg:flex-row flex-col lg:justify-between lg:items-center w-full gap-4">
               <OrdersSummary />
               <ReturnsSummary />
             </div>
           </div>
         </div>
-        <div className='flex flex-col lg:w-1/3 w-full gap-8'>
+        <div className="flex flex-col lg:w-1/3 w-full flex-grow justify-between items-start gap-8">
           <LastNotifications />
           <EventsList />
         </div>
+      </div>
+      <div className="flex gap-8 mt-8 flex-col w-full max-w-[1490px] mx-auto lg:px-0 px-4">
+        <UsersList />
       </div>
     </>
   );

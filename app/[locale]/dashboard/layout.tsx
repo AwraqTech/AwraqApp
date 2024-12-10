@@ -11,6 +11,7 @@ import Link from "next/link";
 import React from "react";
 import Intercom from '@intercom/messenger-js-sdk';
 import { usePathname } from "next/navigation";
+import PlanSubscriptionExpired from "@/app/components/PlanSubscriptionExpired";
 
 export default function DashboardLayout({
     children,
@@ -31,7 +32,7 @@ export default function DashboardLayout({
         email: 'nawaf.alhasosah@gmail.com',
         createdAt: 10
     }
-    
+
     Intercom({
         app_id: 'x1ifg06k',
         //Later i will replace with the real user informations
@@ -120,6 +121,9 @@ export default function DashboardLayout({
             <div className="flex-grow overflow-y-auto lg:p-6 p-0 lg:[margin-inline-start:16rem]">
                 <Header headerTitle={pageTitle} />
                 <SideBarMobileMenu />
+                <div className="lg:px-0 px-4 mt-4">
+                    <PlanSubscriptionExpired />
+                </div>
                 {children}
                 <Footer />
             </div>

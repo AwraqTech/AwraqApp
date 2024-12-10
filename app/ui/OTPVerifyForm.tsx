@@ -25,7 +25,7 @@ export default function OTPVerifyForm({ mode }: OTPVerifyFormProps) {
     return (
         <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 dark:bg-[#111c2a] bg-[#f1f1f1] p-8 w-full max-w-xl rounded-xl"
+            className="flex flex-col gap-4 dark:bg-[#111c2a] bg-[#f1f1f1] border dark:border-[#2b3c53] dark:shadow-neutral-700/70 p-8 w-full max-w-xl rounded-xl"
         >
             <label
                 htmlFor="otp"

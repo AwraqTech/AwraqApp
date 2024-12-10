@@ -47,7 +47,7 @@ const OTPInput: React.FC<OTPInputProps> = ({ length, onChange }) => {
   };
 
   return (
-    <div className="flex gap-x-3">
+    <div className="flex gap-x-3 mb-4">
       {Array.from({ length }).map((_, index) => (
         <input
           key={index}

@@ -25,7 +25,7 @@ export default function RegisterForm() {
   const t = useTranslations("Auth");
 
   return (
-    <form onSubmit={handleRegisterNewUser} className='flex flex-col gap-4 dark:bg-[#111c2a] bg-[#f1f1f1] p-8 w-full max-w-xl rounded-xl'>
+    <form onSubmit={handleRegisterNewUser} className='flex flex-col gap-4 dark:bg-[#111c2a] bg-[#f1f1f1] border dark:border-[#2b3c53] dark:shadow-neutral-700/70 p-8 w-full max-w-xl rounded-xl'>
       <div>
         <label htmlFor="hs-leading-icon" className="block text-sm font-medium mb-2 dark:text-white">
           {t("name_label")}
@@ -83,7 +83,7 @@ export default function RegisterForm() {
           </div>
         </div>
       </div>
-      <div>
+      <div className='mb-4'>
         <label htmlFor="hs-leading-icon" className="block text-sm font-medium mb-2 dark:text-white">
           {t("password_label")}
         </label>

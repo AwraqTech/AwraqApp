@@ -2,12 +2,11 @@
 
 import React from 'react'
 import { useTheme } from '../context/ThemeContext'
-import useScrollTo from '../hooks/useScrollTo';
 import { useSidebar } from '../context/SidebarContext';
-import { useTranslations } from 'next-intl';
 import { Link } from '@/navigation';
 import { useToggleLanguage } from '../hooks/useToggleLanguage';
 import { usePathname } from '@/navigation';
+import useSidebarLogic from '../hooks/useSidebarCollapse';
 
 interface Props {
   headerTitle: string;
@@ -15,13 +14,13 @@ interface Props {
 
 export default function Header({headerTitle}: Props) {
   const { toggleTheme } = useTheme();
-  const handleScroll = useScrollTo();
   const { toggleSidebar } = useSidebar();
-  const t = useTranslations("HomePage");
   const { toggleLanguage } = useToggleLanguage();
   const pathname = usePathname();
+  const { isArabic } = useSidebarLogic();
 
   const auth = pathname.includes('/auth');
+  const completeInformation = pathname.includes('/complete-information')
   const dashboard = pathname.includes('/dashboard');
 
   return (
@@ -44,7 +43,7 @@ export default function Header({headerTitle}: Props) {
           />
         </Link>
         ) : (
-          <h1 className='text-3xl font-bold'>{headerTitle}</h1>
+          <h1 className={`text-3xl font-bold ${!isArabic ? 'border-r-[6px] border-r-[#43A2FE] pr-2' : 'border-l-[6px] border-l-[#43A2FE] pl-2'}`}>{headerTitle}</h1>
         )}
         <div className="lg:order-3 flex items-center gap-x-2">
           <button
@@ -63,7 +62,7 @@ export default function Header({headerTitle}: Props) {
           <button
             type="button"
             onClick={toggleLanguage}
-            className={`hs-collapse-toggle lg:flex ${auth ? 'flex' : 'hidden'} relative size-11 justify-center items-center gap-x-2 rounded-lg border dark:border-[#364861] border-gray-300 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#2b3c53] dark:hover:bg-[#3a506e] dark:focus:bg-[#364861]`}
+            className={`hs-collapse-toggle lg:flex ${auth || completeInformation ? 'flex' : 'hidden'} relative size-11 justify-center items-center gap-x-2 rounded-lg border dark:border-[#364861] border-gray-300 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#2b3c53] dark:hover:bg-[#3a506e] dark:focus:bg-[#364861]`}
             id="hs-navbar-alignment-collapse"
             aria-expanded="false"
             aria-controls="hs-navbar-alignment"
@@ -73,7 +72,7 @@ export default function Header({headerTitle}: Props) {
             <i className='ri-global-fill text-lg text-black dark:text-white' />
           </button>
           {/* Mobile Menu Button */}
-          {auth ? null : (
+          {auth || completeInformation ? null : (
             <button
               type="button"
               onClick={toggleSidebar}

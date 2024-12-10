@@ -11,6 +11,7 @@
   "dependencies": {
     "@intercom/messenger-js-sdk": "^0.0.14",
     "apexcharts": "^4.1.0",
+    "canvas-confetti": "^1.9.3",
     "chart.js": "^4.4.7",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
@@ -29,6 +30,7 @@
     "remixicon": "^4.5.0"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.6.4",
     "@types/lodash": "^4.17.13",
     "@types/node": "^20",
     "@types/react": "^18",
