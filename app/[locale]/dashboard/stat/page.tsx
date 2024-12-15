@@ -18,7 +18,7 @@ export default function DashboardMain() {
 
   return (
     <>
-      <FirstLaunchPageGuid />
+      {/* <FirstLaunchPageGuid /> */}
       <div className="flex w-full max-w-[1490px] mx-auto mt-8 sm:px-0 px-4">
         <AnalyticsHeading onTimePeriodChange={handleTimePeriodChange} />
       </div>

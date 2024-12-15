@@ -10,6 +10,7 @@ import { headers } from "next/headers";
 import { ErrorProvider } from "../context/ErrorContext";
 import { RegisterProvider } from "../context/RegisterContext";
 import { StepProvider } from "../context/StepContext";
+import { ModalProvider } from "../context/ModalContext";
 
 // Load font
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
@@ -52,7 +53,9 @@ export default async function RootLayout({
             <ErrorProvider>
               <RegisterProvider>
                 <StepProvider>
-                  {children}
+                  <ModalProvider>
+                    {children}
+                  </ModalProvider>
                 </StepProvider>
               </RegisterProvider>
             </ErrorProvider>

@@ -1,10 +1,12 @@
 import { fakeLastNotifications } from '@/app/data/fakeLastNotificationsData';
 import useFormatEvents from '@/app/hooks/useFormatEvents';
+import useSidebarLogic from '@/app/hooks/useSidebarCollapse';
 import React from 'react'
 
 export default function LastNotificationsSection() {
     const { groupEventsByDate, formatDate } = useFormatEvents();
     const groupedEvents = groupEventsByDate(fakeLastNotifications);
+    const { isArabic } = useSidebarLogic();
 
     return (
         <div className='grid grid-rows-[auto,1fr] w-full max-h-[300px] overflow-y-auto'>
@@ -18,7 +20,7 @@ export default function LastNotificationsSection() {
                     {groupedEvents[date].map((event: any) => (
                         <div key={event.id} className="flex gap-x-3 relative group border-b border-b-gray-200 dark:border-b-gray-700">
                             <div className="grow p-2">
-                                <div className='absolute top-2 left-2 w-2 h-2 rounded-full bg-red-600' />
+                                <div className={`absolute top-2 ${!isArabic ? 'left-2' : 'right-2'} w-2 h-2 rounded-full bg-red-600`} />
                                 <h3 className="flex gap-x-1.5 font-semibold text-gray-800 dark:text-white">
                                     {event.title}
                                 </h3>

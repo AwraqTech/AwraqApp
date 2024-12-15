@@ -12,6 +12,7 @@ import React from "react";
 import Intercom from '@intercom/messenger-js-sdk';
 import { usePathname } from "next/navigation";
 import PlanSubscriptionExpired from "@/app/components/PlanSubscriptionExpired";
+import MaintenanceNotification from "@/app/components/MaintenanceNotification";
 
 export default function DashboardLayout({
     children,
@@ -121,7 +122,8 @@ export default function DashboardLayout({
             <div className="flex-grow overflow-y-auto lg:p-6 p-0 lg:[margin-inline-start:16rem]">
                 <Header headerTitle={pageTitle} />
                 <SideBarMobileMenu />
-                <div className="lg:px-0 px-4 mt-4">
+                <div className="lg:px-0 px-4 mt-4 gap-4 flex flex-col">
+                    <MaintenanceNotification maintenanceMessage="يرجى التنويه بأننا سنقوم بأعمال صيانة للمنصة في تاريخ 7/10 من الساعة 10:00 ص حتى الساعة 12:00 ص"/>
                     <PlanSubscriptionExpired />
                 </div>
                 {children}

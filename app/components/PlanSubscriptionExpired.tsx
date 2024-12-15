@@ -9,13 +9,13 @@ export default function PlanSubscriptionExpired() {
         >
             <div className="flex lg:w-auto w-2/3">
                 <div className="shrink-0">
-                    <i className='ri-alert-line' />
+                    <i className='ri-alert-line text-black dark:text-white' />
                 </div>
                 <div className="ms-4">
                     <h3 id="hs-with-description-label" className="text-sm font-semibold">
                         إنتهت مدة إشتراكك في باقاتنا
                     </h3>
-                    <div className="mt-1 text-sm text-yellow-700 lg:flex hidden">
+                    <div className="mt-1 text-sm text-gray-700 dark:text-gray-300 lg:flex hidden">
                         باقتك الآن معلقة و لا يمكنك إستخدام خدماتنا حتى يتم دفع رسوم الإشتراك لأحد الباقات الخاصة بنا
                     </div>
                 </div>
@@ -24,6 +24,5 @@ export default function PlanSubscriptionExpired() {
                 <p className='text-white font-medium'>تجديد الإشتراك</p>
             </button>
         </div>
-
     )
 }
