@@ -11,6 +11,8 @@ import { ErrorProvider } from "../context/ErrorContext";
 import { RegisterProvider } from "../context/RegisterContext";
 import { StepProvider } from "../context/StepContext";
 import { ModalProvider } from "../context/ModalContext";
+import { PaginationProvider } from "../context/PaginationContext";
+import { fakeProductsData } from "../data/fakeProductsData";
 
 // Load font
 const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
@@ -54,7 +56,9 @@ export default async function RootLayout({
               <RegisterProvider>
                 <StepProvider>
                   <ModalProvider>
-                    {children}
+                    <PaginationProvider totalItems={fakeProductsData.length} itemsPerPage={25}>
+                      {children}
+                    </PaginationProvider>
                   </ModalProvider>
                 </StepProvider>
               </RegisterProvider>

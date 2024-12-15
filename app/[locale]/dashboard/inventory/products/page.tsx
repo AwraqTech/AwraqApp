@@ -14,5 +14,5 @@ export default function Products() {
       <ProductsLists />
       <Pagingation />
     </div>
-  )
+  );
 }

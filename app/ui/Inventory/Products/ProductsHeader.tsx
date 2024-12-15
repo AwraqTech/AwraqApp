@@ -2,9 +2,16 @@
 
 import { useModal } from '@/app/context/ModalContext';
 import React from 'react'
+import DropdownGhostButton from '../../DropdownGhostButton';
 
 export default function ProductsHeader() {
     const { openModal } = useModal();
+
+    const filterList = [
+        { title: 'آخر 24 ساعة', filterType: '24h'},
+        { title: 'آخر 7 أيام', filterType: '7d'},
+        { title: 'آخر 30 يوم', filterType: '30d'},
+    ]
 
     return (
         <div className='flex flex-col w-full'>
@@ -14,7 +21,7 @@ export default function ProductsHeader() {
                     <i className='ri-add-line text-white' />
                 </button>
                 <div className='flex flex-row justify-end items-center gap-2'>
-                    <div className="relative hidden lg:flex" dir='ltr'>
+                    <div className="relative hidden lg:flex">
                         <input
                             type="text"
                             id="hs-leading-icon"
@@ -26,10 +33,12 @@ export default function ProductsHeader() {
                             <i className='ri-search-line text-lg text-neutral-400 dark:text-neutral-500' />
                         </div>
                     </div>
-                    <button className='flex flex-row justify-center items-center gap-2 px-3 py-2'>
-                        <h3>تصفية</h3>
-                        <i className='ri-filter-line' />
-                    </button>
+                    <DropdownGhostButton
+                        icon='filter-line'
+                        buttonTitle='تصفية'
+                        list={filterList}
+                        onSelect={() => console.log('Button Clicked')}
+                    />
                     <button className='flex flex-row justify-center items-center gap-2 px-3 py-2'>
                         <h3>خيارات</h3>
                         <i className='ri-equalizer-2-line' />
