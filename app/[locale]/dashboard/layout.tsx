@@ -10,7 +10,6 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
 import Intercom from '@intercom/messenger-js-sdk';
-import { usePathname } from "next/navigation";
 import PlanSubscriptionExpired from "@/app/components/PlanSubscriptionExpired";
 import MaintenanceNotification from "@/app/components/MaintenanceNotification";
 
@@ -22,9 +21,6 @@ export default function DashboardLayout({
     const pageTitle = useDynamicPathState();
     const t = useTranslations("SideBarNav");
     const { tooltipVisible, onMouseEnter, onMouseLeave } = useTooltip();
-    const pathname = usePathname();
-    const isArabic = pathname.includes('/ar') ? 'left' : 'right';
-    const language = pathname.includes('/ar') ? 'ar' : 'en';
 
     // for proposal purpose
     const user = {
@@ -46,7 +42,7 @@ export default function DashboardLayout({
     return (
         <main className="flex h-screen">
             {/* Sidebar */}
-            <div className="lg:flex hidden flex-col justify-between items-center border-e p-4 dark:border-e-[#19293d] border-e-[#e4e4e4] h-screen w-64 fixed gap-16 overflow-y-auto">
+            <div className="lg:flex hidden flex-col justify-between items-center border-e p-4 dark:border-e-[#19293d] border-e-[#e4e4e4] h-screen w-64 fixed gap-16 overflow-y-auto mt-4">
                 <Link
                     className="flex text-sm font-light dark:text-white focus:outline-none focus:opacity-80 flex-col justify-center items-center gap-2"
                     href="/dashboard/stat"

@@ -15,7 +15,7 @@ export default function ProductsHeader() {
 
     return (
         <div className='flex flex-col w-full'>
-            <div className='flex flex-row justify-between items-center py-4'>
+            <div className='flex flex-row justify-between items-center pb-4'>
                 <button onClick={() => openModal('createProduct')} className='flex flex-row justify-center items-center gap-2 px-3 py-2 rounded-lg bg-[#3784d1]'>
                     <h3 className='text-white'>إضافة منتج</h3>
                     <i className='ri-add-line text-white' />

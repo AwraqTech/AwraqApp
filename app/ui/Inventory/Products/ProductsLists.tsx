@@ -70,7 +70,7 @@ export default function ProductsTable() {
                   </thead>
                   <tbody className="divide-y divide-gray-200 dark:divide-[#2b3c53]">
                     {visibleProducts.map((product) => (
-                      <tr key={product.id}>
+                      <tr key={product.id} className={`${product.inventory <= 10 ? 'bg-red-200 dark:bg-red-500/10' : ''}`}>
                         <td className="px-6 py-4 text-center whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
                           <input
                             type="checkbox"
@@ -100,7 +100,7 @@ export default function ProductsTable() {
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                           {product.price}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                        <td className={`px-6 py-4 whitespace-nowrap text-sm ${product.inventory <= 10 ? 'text-red-500' : 'text-gray-800 dark:text-neutral-200'}`}>
                           {product.inventory}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">

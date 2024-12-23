@@ -30,8 +30,8 @@ const AnalyticsDiagram = ({ selectedTimePeriod }: Props) => {
                         {
                             label: 'المصروفات الشهرية',
                             data: chartData.dataTwo,
-                            borderColor: 'rgb(38, 234, 184)',
-                            backgroundColor: 'rgba(38, 234, 184)',
+                            borderColor: '#0067C2',
+                            backgroundColor: '#0067C2',
                             fill: true,
                         },
                     ]}
@@ -53,8 +53,8 @@ const AnalyticsDiagram = ({ selectedTimePeriod }: Props) => {
                         {
                             label: 'المصروفات الشهرية',
                             data: chartData.dataTwo,
-                            borderColor: 'rgb(38, 234, 184)',
-                            backgroundColor: 'rgba(38, 234, 184)',
+                            borderColor: '#0067C2',
+                            backgroundColor: '#0067C2',
                             fill: true,
                         },
                     ]}
