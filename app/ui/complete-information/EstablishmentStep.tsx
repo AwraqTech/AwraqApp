@@ -7,7 +7,21 @@ type Props = {}
 
 export default function EstablishmentStep({ }: Props) {
   const t = useTranslations('CompleteInformation');
-  const { documentType, isVat, handleToggleDocumentType, handleToggleVatRegi } = useHndleEstablishment();
+  const {
+    documentType,
+    isVatRegistred,
+    documentTypeChange,
+    handleToggleVatRegi,
+    commercialRegisterationNumber,
+    entityName,
+    issueDate,
+    expirationDate,
+    businessActivity,
+    registrationStatus,
+    vatRegistrationNumber,
+    commercialRegisterationNumberChange,
+    vatRegistrationNumberChange
+  } = useHndleEstablishment();
 
   return (
     <div>
@@ -24,7 +38,7 @@ export default function EstablishmentStep({ }: Props) {
             type="radio"
             className="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
             checked={documentType === 'FL'}
-            onChange={() => handleToggleDocumentType('FL')}
+            onChange={() => documentTypeChange('FL')}
           />
           <span className="text-sm text-gray-500 ms-3 dark:text-neutral-400 text-justify">{t('FL')}</span>
         </label>
@@ -36,7 +50,7 @@ export default function EstablishmentStep({ }: Props) {
             type="radio"
             className="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
             checked={documentType === 'CR'}
-            onChange={() => handleToggleDocumentType('CR')}
+            onChange={() => documentTypeChange('CR')}
           />
           <span className="text-sm text-gray-500 ms-3 dark:text-neutral-400 text-justify">{t('CR')}</span>
         </label>
@@ -52,6 +66,10 @@ export default function EstablishmentStep({ }: Props) {
               <input
                 type="text"
                 placeholder='FL-000000000'
+                value={commercialRegisterationNumber}
+                onChange={(e) => commercialRegisterationNumberChange(e.target.value)}
+                maxLength={12}
+                pattern="\d*"
                 className="py-3 px-4 ps-11 block w-full border border-gray-300 bg-[#ffffff] shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:text-white dark:placeholder-neutral-500 dark:focus:ring-[#20344e]"
               />
               <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
@@ -73,6 +91,8 @@ export default function EstablishmentStep({ }: Props) {
                     placeholder='2050123456'
                     maxLength={10}
                     pattern="\d*"
+                    value={commercialRegisterationNumber}
+                    onChange={(e) => commercialRegisterationNumberChange(e.target.value)}
                   />
                   <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
                     <i className='ri-building-4-line text-lg text-neutral-400 dark:text-neutral-500' />
@@ -91,7 +111,7 @@ export default function EstablishmentStep({ }: Props) {
                 <input
                   type="text"
                   disabled={true}
-                  value={"شركة محمد صلاح أحمد"}
+                  value={entityName}
                   className="py-3 px-4 ps-11 block w-full border border-gray-300 bg-[#ffffff] shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:text-white dark:placeholder-neutral-500 dark:focus:ring-[#20344e]"
                 />
                 <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
@@ -107,7 +127,7 @@ export default function EstablishmentStep({ }: Props) {
                 <input
                   type="text"
                   disabled={true}
-                  value='07/06/2019'
+                  value={issueDate}
                   className="py-3 px-4 ps-11 block w-full border border-gray-300 bg-[#ffffff] shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:text-white dark:placeholder-neutral-500 dark:focus:ring-[#20344e]"
                 />
                 <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
@@ -123,7 +143,7 @@ export default function EstablishmentStep({ }: Props) {
                 <input
                   type="text"
                   disabled={true}
-                  value='07/06/2019'
+                  value={expirationDate}
                   className="py-3 px-4 ps-11 block w-full border border-gray-300 bg-[#ffffff] shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:text-white dark:placeholder-neutral-500 dark:focus:ring-[#20344e]"
                 />
                 <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
@@ -139,7 +159,7 @@ export default function EstablishmentStep({ }: Props) {
                 <input
                   type="text"
                   disabled={true}
-                  value="البيع بالتجزئة للمنسوجات و الحياكة"
+                  value={businessActivity}
                   className="py-3 px-4 ps-11 block w-full border border-gray-300 bg-[#ffffff] shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:text-white dark:placeholder-neutral-500 dark:focus:ring-[#20344e]"
                 />
                 <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
@@ -155,7 +175,7 @@ export default function EstablishmentStep({ }: Props) {
                 <input
                   type="text"
                   disabled={true}
-                  value="نشط"
+                  value={registrationStatus}
                   className="py-3 px-4 ps-11 block w-full border border-gray-300 bg-[#ffffff] shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:text-white dark:placeholder-neutral-500 dark:focus:ring-[#20344e]"
                 />
                 <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
@@ -179,7 +199,7 @@ export default function EstablishmentStep({ }: Props) {
           <input
             type="radio"
             className="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-            checked={isVat === true}
+            checked={isVatRegistred === true}
             onChange={() => handleToggleVatRegi(true)}
           />
           <span className="text-sm text-gray-500 ms-3 dark:text-neutral-400 text-justify">{t('yesVat')}</span>
@@ -190,12 +210,12 @@ export default function EstablishmentStep({ }: Props) {
           <input
             type="radio"
             className="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-            checked={isVat === false}
+            checked={isVatRegistred === false}
             onChange={() => handleToggleVatRegi(false)}
           />
           <span className="text-sm text-gray-500 ms-3 dark:text-neutral-400 text-justify">{t('noVat')}</span>
         </label>
-        {isVat ? (
+        {isVatRegistred ? (
           <div className='flex flex-col justify-start items-start gap-2 w-full'>
             <label htmlFor="hs-leading-icon" className="block text-sm font-medium mb-2 dark:text-white">
               {t('vatSubscriptionNumber')}
@@ -204,6 +224,10 @@ export default function EstablishmentStep({ }: Props) {
               <input
                 type="text"
                 placeholder="310000000000000"
+                value={vatRegistrationNumber}
+                maxLength={15}
+                pattern="\d*"
+                onChange={(e) => vatRegistrationNumberChange(e.target.value)}
                 className="py-3 px-4 ps-11 block w-full border border-gray-300 bg-[#ffffff] shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:text-white dark:placeholder-neutral-500 dark:focus:ring-[#20344e]"
               />
               <div className="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">

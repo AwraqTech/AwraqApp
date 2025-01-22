@@ -1,14 +1,16 @@
 import { useTranslations } from 'next-intl';
 import React from 'react'
+import usePlanSelection from '../hooks/usePlanSelection';
 
 type Props = {
     title: string;
-    price: string | number;
+    price: string;
     duration: string;
 }
 
 export default function PlaneSelection({ title, price, duration }: Props) {
     const t = useTranslations('CompleteInformation');
+    const { handlePlanSelection } = usePlanSelection();
 
     return (
         <label
@@ -16,6 +18,7 @@ export default function PlaneSelection({ title, price, duration }: Props) {
         >
             <input
                 type="radio"
+                onChange={() => handlePlanSelection(title, price, duration)}
                 className="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#071321] dark:border-[#20344e] dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
             />
             <div className='flex flex-col justify-center items-center gap-2 w-full'>

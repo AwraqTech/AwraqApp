@@ -1,23 +1,55 @@
 "use client"
 
-import { useState } from 'react'
+import { useCompleteInformation } from '../context/CompleteInformationContext';
 
 export default function useHndleEstablishment() {
-    const [documentType, setDocumentType] = useState<string>('CR');
-    const [isVat, setIsVat] = useState<boolean>(false);
+    const {
+        documentType,
+        setDocumentType,
+        commercialRegisterationNumber,
+        setCcommercialRegisterationNumber,
+        entityName,
+        issueDate,
+        expirationDate,
+        businessActivity,
+        registrationStatus,
+        isVatRegistred,
+        setIsVatRegistred,
+        vatRegistrationNumber,
+        setVatRegistrationNumber,
+    } = useCompleteInformation();
 
-    const handleToggleDocumentType = (type: string) => {
+    const documentTypeChange = (type: string) => {
         setDocumentType(type);
     };
 
-    const handleToggleVatRegi = (vat: boolean) => {
-        setIsVat(vat);
+    const commercialRegisterationNumberChange = (type: string) => {
+        setCcommercialRegisterationNumber(type);
     };
+
+    const vatRegistrationNumberChange = (type: string) => {
+        setVatRegistrationNumber(type);
+    };
+
+    const handleToggleVatRegi = (vat: boolean) => {
+        setIsVatRegistred(vat);
+    };
+
+    console.log(commercialRegisterationNumber);
 
     return {
         documentType,
-        isVat,
-        handleToggleDocumentType,
-        handleToggleVatRegi
+        isVatRegistred,
+        documentTypeChange,
+        handleToggleVatRegi,
+        commercialRegisterationNumber,
+        entityName,
+        issueDate,
+        expirationDate,
+        businessActivity,
+        registrationStatus,
+        vatRegistrationNumber,
+        commercialRegisterationNumberChange,
+        vatRegistrationNumberChange
     };
 };

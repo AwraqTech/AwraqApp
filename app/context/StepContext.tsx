@@ -49,7 +49,7 @@ export const StepProvider = ({ children }: StepProviderProps) => {
         isFirstStep,
         isLastStep,
         isStepCompleted,
-        isStepActive,
+        isStepActive
       }}
     >
       {children}
